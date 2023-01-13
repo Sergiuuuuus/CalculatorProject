@@ -14,12 +14,17 @@ namespace CalculatorProject.Tests
     {
         Calculator calculator = new Calculator();
 
-        [TestMethod()]
-        public void AddTest()
+        [DataRow(3, 5, 8)]
+        [DataRow(10, 3, 13)]
+        [DataRow(4, 5, 10)]
+        [DataTestMethod]
+        public void AddTest(int num1, int num2, int result)
         {
             //Calculator calculator = new Calculator();
-            Assert.IsTrue(calculator.Add(2, 2) == 4);
-            Assert.IsFalse(calculator.Add(2, 2) == 3);
+            Assert.IsTrue(calculator.Add(num1, num2) == result);
+            //Antes de implementar los DataRow y hacer el método DataTestMethod se testeaba de la siguiente manera:
+            //Assert.IsTrue(calculator.Add(2, 2) == 4);
+            //Assert.IsFalse(calculator.Add(2, 2) == 3);
         }
 
         [TestMethod()]
